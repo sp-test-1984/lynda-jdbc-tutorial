@@ -1,5 +1,9 @@
 package jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  * Hello world!
  *
@@ -7,18 +11,22 @@ package jdbc;
 public class App 
 {
 
-    private static String value = "one";
+    private static final String CONN_STRING =
+            "jdbc:mysql://localhost/explorecalifornia";
+
+    private static final String USER = "dbuser";
+    private static final String PASSWORD = "dbpassword";
+
 
     public static void main( String[] args )
     {
-        switch (value){
-            case "one":
-                System.out.println("value is one");
-                break;
+        Connection conn = null;
 
-                default:
-                    System.out.println("value is not one");
-                    break;
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USER, PASSWORD);
+            System.out.println("Connected!");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
