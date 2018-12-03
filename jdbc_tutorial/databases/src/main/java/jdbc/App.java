@@ -9,13 +9,6 @@ import java.sql.*;
 public class App 
 {
 
-    private static final String CONN_STRING =
-            "jdbc:mysql://localhost/explorecalifornia";
-
-    private static final String USER = "dbuser";
-    private static final String PASSWORD = "dbpassword";
-
-
     public static void main( String[] args ) throws SQLException
     {
         Connection conn = null;
