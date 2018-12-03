@@ -23,7 +23,7 @@ public class App
         ResultSet rs = null;
 
         try {
-            conn = DriverManager.getConnection(CONN_STRING, USER, PASSWORD);
+            conn = DBUtil.getConnection(DBType.MYSQL);
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = stmt.executeQuery("SELECT * FROM STATES");
             rs.last();
