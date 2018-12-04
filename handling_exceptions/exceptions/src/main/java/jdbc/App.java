@@ -8,7 +8,7 @@ import java.sql.*;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws SQLException
     {
         Connection conn = null;
         Statement stmt = null;
@@ -23,6 +23,18 @@ public class App
             System.out.println("number of rows: " + rs.getRow());
         } catch (SQLException e) {
             DBUtil.processException(e);
+        } finally {
+            if(rs != null){
+                rs.close();
+            }
+
+            if(stmt != null){
+                stmt.close();
+            }
+
+            if(conn != null){
+                conn.close();
+            }
         }
     }
 }
